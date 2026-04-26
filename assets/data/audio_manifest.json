@@ -1,0 +1,21 @@
+{
+  "music": {
+    "grassland": [],
+    "forest": [],
+    "snow_wasteland": [],
+    "desert": [],
+    "seaside": []
+  },
+  "ambience": {
+    "rain": [],
+    "snow": [],
+    "wind": [],
+    "ocean": [],
+    "forest": []
+  },
+  "hoofsteps": {
+    "grass": [],
+    "sand": [],
+    "stone": []
+  }
+}

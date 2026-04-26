@@ -1,0 +1,5 @@
+{
+  "themes": ["grassland", "forest", "snow_wasteland", "desert", "seaside"],
+  "weather": ["clear", "rain", "snow", "wind", "cloudy"],
+  "timePresets": ["dawn", "noon", "dusk", "night"]
+}

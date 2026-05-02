@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Run boy run 资产审查</title>
+    <link rel="stylesheet" href="./review.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="review-header">
+        <div>
+          <p class="eyebrow">Run boy run</p>
+          <h1>资产审查</h1>
+        </div>
+        <button id="export-review" class="primary-action" type="button">导出审查 JSON</button>
+      </header>
+
+      <section class="notice">
+        静态页面不能直接写回仓库。审查修改会先保存在这个浏览器里。
+        导出 JSON 后，请用它覆盖 <code>src/assets/reviewState.json</code>，再运行入库脚本。
+      </section>
+
+      <section class="toolbar" aria-label="资产筛选">
+        <label>
+          类型
+          <select id="type-filter"></select>
+        </label>
+        <label>
+          生物群系
+          <select id="biome-filter"></select>
+        </label>
+        <label>
+          状态
+          <select id="status-filter"></select>
+        </label>
+      </section>
+
+      <section id="summary" class="summary" aria-live="polite"></section>
+      <section id="asset-list" class="asset-list"></section>
+    </main>
+
+    <script src="./review.js"></script>
+  </body>
+</html>

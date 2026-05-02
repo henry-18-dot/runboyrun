@@ -1,0 +1,13 @@
+{
+  "name": "run-boy-run",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "assets:validate": "node tools/asset-pipeline/validate-assets.js",
+    "assets:review": "node tools/asset-pipeline/build-review-site.js",
+    "assets:approve": "node tools/asset-pipeline/approve-assets.js",
+    "assets:serve": "node tools/asset-pipeline/serve-review-site.js",
+    "assets:prepare": "npm run assets:validate && npm run assets:review"
+  }
+}

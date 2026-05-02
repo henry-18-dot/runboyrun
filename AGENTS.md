@@ -924,3 +924,24 @@ Is the diff reviewable?
 
 If the answer to any item is no, either fix it or mention it.
 
+---
+
+## 22. Project Workflow Rules
+
+For this project, Codex should treat the repository as the single source of truth for multi-assistant planning.
+
+Before planning or implementing non-trivial changes, read:
+
+```text
+docs/project/
+docs/iterations/README.md
+docs/iterations/<latest-version>/
+```
+
+Workflow rules:
+
+- Do not treat raw ChatGPT conversation transcripts as a long-term fact source.
+- Summarize assistant outputs into the current Version Pack before using them to guide code or asset changes.
+- Keep `docs/project/DECISION_LOG.md` and `docs/project/OPEN_QUESTIONS.md` current when decisions or blockers change.
+- Before modifying game runtime code, confirm the current Version Pack supports the change.
+- ChatGPT project-space copies are handoff snapshots only; repo docs remain authoritative.

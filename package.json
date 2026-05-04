@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "node tools/dev-server.js",
     "assets:validate": "node tools/asset-pipeline/validate-assets.js",
     "assets:review": "node tools/asset-pipeline/build-review-site.js",
     "assets:approve": "node tools/asset-pipeline/approve-assets.js",

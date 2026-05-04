@@ -251,12 +251,95 @@ select {
   border-bottom: 1px solid var(--line);
 }
 
+.visual-preview-stack {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+  background: #0b0d0e;
+}
+
+.visual-preview-stack .asset-preview {
+  min-height: 180px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.04) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.04) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.04) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.04) 75%),
+    #0b0d0e;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+  background-size: 16px 16px;
+}
+
 .asset-preview img {
   display: block;
   max-width: 100%;
   max-height: 320px;
   image-rendering: pixelated;
   object-fit: contain;
+}
+
+.preview-label {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.seam-preview {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #0b0d0e;
+}
+
+.seam-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.seam-strip img {
+  width: 100%;
+  height: 88px;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+.composition-preview {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: linear-gradient(180deg, #9cc5d5, #6f8b50);
+}
+
+.composition-preview img {
+  display: block;
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+.safe-zone,
+.rider-marker {
+  position: absolute;
+  pointer-events: none;
+}
+
+.safe-zone {
+  border: 1px solid rgba(240, 230, 160, 0.66);
+  background: rgba(240, 230, 160, 0.06);
+}
+
+.rider-marker {
+  width: 38px;
+  height: 18px;
+  border-radius: 3px;
+  background: rgba(20, 18, 17, 0.88);
+  box-shadow: -15px 5px 0 rgba(20, 18, 17, 0.86), 16px 5px 0 rgba(20, 18, 17, 0.86), -1px -20px 0 -4px rgba(20, 18, 17, 0.9);
 }
 
 .audio-preview {
@@ -308,6 +391,34 @@ audio {
   margin: 0;
   color: #c8d0c9;
   line-height: 1.5;
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.spec-grid span {
+  overflow-wrap: anywhere;
+}
+
+.warnings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.warning-pill {
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: rgba(216, 190, 123, 0.14);
+  color: #edda9b;
+  font-size: 0.72rem;
 }
 
 .review-controls {
@@ -564,8 +675,11 @@ function renderCard(item) {
       <span>\${escapeHtml(item.biome || "未知生物群系")}</span>
       <span>\${escapeHtml(item.role || "未知用途")}</span>
       \${item.layer ? \`<span>\${escapeHtml(item.layer)}</span>\` : ""}
+      \${item.subLayer ? \`<span>\${escapeHtml(item.subLayer)}</span>\` : ""}
     </div>
     <p class="notes">\${escapeHtml(item.notes || "暂无备注。")}</p>
+    \${renderSpecs(item)}
+    \${renderWarnings(item)}
   \`;
   card.append(body);
 
@@ -611,17 +725,12 @@ function renderCard(item) {
 }
 
 function renderPreview(item) {
+  if (item.type === "visual") {
+    return renderVisualPreview(item);
+  }
+
   const preview = document.createElement("div");
   preview.className = "asset-preview";
-
-  if (item.type === "visual") {
-    const image = document.createElement("img");
-    image.src = item.path;
-    image.alt = item.id;
-    image.loading = "lazy";
-    preview.append(image);
-    return preview;
-  }
 
   if (item.type === "audio") {
     const wrapper = document.createElement("div");
@@ -637,6 +746,105 @@ function renderPreview(item) {
 
   preview.textContent = "不支持的资产类型。";
   return preview;
+}
+
+function renderVisualPreview(item) {
+  const stack = document.createElement("div");
+  stack.className = "visual-preview-stack";
+
+  const isolated = document.createElement("div");
+  isolated.innerHTML = '<p class="preview-label">isolated layer</p>';
+  const isolatedFrame = document.createElement("div");
+  isolatedFrame.className = "asset-preview";
+  isolatedFrame.append(renderImage(item));
+  isolated.append(isolatedFrame);
+
+  const seam = document.createElement("div");
+  seam.className = "seam-preview";
+  seam.innerHTML = '<p class="preview-label">3x horizontal seam</p>';
+  const strip = document.createElement("div");
+  strip.className = "seam-strip";
+  strip.append(renderImage(item), renderImage(item), renderImage(item));
+  seam.append(strip);
+
+  const composition = document.createElement("div");
+  composition.className = "composition-preview";
+  composition.innerHTML = '<p class="preview-label">composition safety</p>';
+  composition.append(renderImage(item));
+  appendSafeZone(composition, item);
+
+  stack.append(isolated, seam, composition);
+  return stack;
+}
+
+function renderImage(item) {
+  const image = document.createElement("img");
+  image.src = item.path;
+  image.alt = item.id;
+  image.loading = "lazy";
+  return image;
+}
+
+function appendSafeZone(container, item) {
+  if (!item.safeRiderZone || !item.width || !item.height) {
+    return;
+  }
+
+  const zone = item.safeRiderZone;
+  const safeZone = document.createElement("span");
+  safeZone.className = "safe-zone";
+  safeZone.style.left = \`\${(zone.xMin / item.width) * 100}%\`;
+  safeZone.style.top = \`\${(zone.yMin / item.height) * 100}%\`;
+  safeZone.style.width = \`\${((zone.xMax - zone.xMin) / item.width) * 100}%\`;
+  safeZone.style.height = \`\${((zone.yMax - zone.yMin) / item.height) * 100}%\`;
+
+  const rider = document.createElement("span");
+  rider.className = "rider-marker";
+  rider.style.left = \`\${((zone.xMin + zone.xMax) / 2 / item.width) * 100}%\`;
+  rider.style.top = \`\${((item.groundLineY || zone.yMax) / item.height) * 100}%\`;
+  rider.style.transform = "translate(-50%, -50%)";
+
+  container.append(safeZone, rider);
+}
+
+function renderSpecs(item) {
+  if (item.type !== "visual") {
+    return "";
+  }
+
+  const values = [
+    ["size", item.width && item.height ? \`\${item.width}x\${item.height}\` : "missing"],
+    ["tileableX", item.tileableX === true ? "yes" : "no/missing"],
+    ["parallax", item.parallax ?? "missing"],
+    ["groundLineY", item.groundLineY ?? "missing"]
+  ];
+
+  return \`<div class="spec-grid">\${values
+    .map(([label, value]) => \`<span><strong>\${escapeHtml(label)}</strong>: \${escapeHtml(value)}</span>\`)
+    .join("")}</div>\`;
+}
+
+function renderWarnings(item) {
+  if (item.type !== "visual") {
+    return "";
+  }
+
+  const warnings = [];
+  for (const field of ["subLayer", "width", "height", "parallax", "groundLineY", "safeRiderZone"]) {
+    if (item[field] === undefined || item[field] === null || item[field] === "") {
+      warnings.push(\`missing \${field}\`);
+    }
+  }
+  if (item.tileableX !== true) {
+    warnings.push("tileableX not true");
+  }
+  if (warnings.length === 0) {
+    return "";
+  }
+
+  return \`<div class="warnings">\${warnings
+    .map((warning) => \`<span class="warning-pill">\${escapeHtml(warning)}</span>\`)
+    .join("")}</div>\`;
 }
 
 function exportReviewState() {

@@ -16,13 +16,13 @@ Product definition baseline: `Product Document v0`. See `docs/project/PRODUCT_DO
 
 ## Content State / 当前内容状态
 
-- 当前主要是 first-playable technical skeleton。
+- 当前是 grassland first-playable technical slice。
 - 世界主题、天气、昼夜切换已有数据与管理模块。
-- 角色、背景、音乐、环境声和音效仍以 placeholder 或 manifest 占位为主。
+- 草原背景已有 engineered v2 runtime layer baseline；角色、音乐、环境声和音效仍以 placeholder 或 manifest 占位为主。
 
 ## Asset State / 当前资产状态
 
-- Candidate manifest 当前为空。
+- Candidate manifest 包含 grassland v2 engineered visual layer candidates。
 - Review state 当前为空。
 - Approved visual/audio manifests 当前为空或占位。
 - 资产生产线已具备手动候选登记、审查页面生成、审查状态导出和 approved manifest 写入流程。

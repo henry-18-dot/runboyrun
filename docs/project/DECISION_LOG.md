@@ -46,3 +46,12 @@ Status values: `proposed`, `accepted`, `rejected`, `superseded`.
 - Decision: Repo 是 single source of truth，ChatGPT 项目园只同步摘要。
 - Rationale: 版本历史、回滚、决策记录和执行任务都需要跟仓库一起保存。
 - Consequences: 每轮需要先更新 repo 文档，再复制关键摘要到 ChatGPT 项目园。
+
+## DEC-006 - Grassland first-playable asset bridge
+
+- Date: 2026-05-04
+- Status: accepted
+- Context: The first playable needs real layered grassland visuals now, while the project still protects the candidate review workflow.
+- Decision: Use deterministic engineered grassland v2 layer PNGs directly in runtime for playable validation, and also register them as pending visual candidates.
+- Rationale: This keeps gameplay readability, seam behavior, and rider safe-zone validation moving without pretending the art has passed final review.
+- Consequences: The grassland v2 baseline is a temporary runtime bridge. Future AI or ComfyUI replacements still go through candidate review before becoming the default visual set.

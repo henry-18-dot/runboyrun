@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Run Boy Run</title>
+    <link rel="stylesheet" href="/src/styles/app.css">
+  </head>
+  <body>
+    <canvas id="game-canvas" aria-label="Run Boy Run game canvas"></canvas>
+
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-panel">
+        <p class="eyebrow">Run Boy Run</p>
+        <h1>草原旅途</h1>
+        <p id="loading-status">Starting...</p>
+      </div>
+    </div>
+
+    <aside id="settings-panel" class="settings-panel" aria-label="Journey settings"></aside>
+    <div id="text-prompt" class="text-prompt" aria-live="polite"></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

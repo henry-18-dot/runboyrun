@@ -1,5 +1,14 @@
+import { visualLayersFor } from "../../assets/runtimeVisualManifest.js";
+import { renderVisualLayers } from "./LayerImageRenderer.js";
+
 export class FarLayer {
-  render(ctx, viewport, world, cameraX) {
+  render(ctx, viewport, world, cameraX, cache) {
+    const imageLayers = visualLayersFor(world.currentBiome.theme.id, ["far", "far_detail"]);
+    if (imageLayers.length > 0) {
+      renderVisualLayers(ctx, viewport, cameraX, cache, imageLayers);
+      return;
+    }
+
     const color = world.currentBiome.theme.palette.far;
     ctx.fillStyle = color;
     const baseY = viewport.height * 0.6;

@@ -1,5 +1,14 @@
+import { visualLayersFor } from "../../assets/runtimeVisualManifest.js";
+import { renderVisualLayers } from "./LayerImageRenderer.js";
+
 export class MidLayer {
-  render(ctx, viewport, world, cameraX) {
+  render(ctx, viewport, world, cameraX, cache) {
+    const imageLayers = visualLayersFor(world.currentBiome.theme.id, "mid");
+    if (imageLayers.length > 0) {
+      renderVisualLayers(ctx, viewport, cameraX, cache, imageLayers);
+      return;
+    }
+
     ctx.fillStyle = world.currentBiome.theme.palette.mid;
     const baseY = viewport.height * 0.7;
     for (let i = -1; i < 8; i += 1) {

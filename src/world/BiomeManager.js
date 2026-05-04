@@ -4,13 +4,14 @@ import { choose } from "../utils/math.js";
 export class BiomeManager {
   constructor(random = Math.random) {
     this.random = random;
-    this.current = this.createBiome();
+    this.current = this.createBiome("grassland");
     this.previousTheme = this.current.theme.id;
   }
 
-  createBiome() {
+  createBiome(preferredThemeId = null) {
+    const preferredTheme = preferredThemeId ? THEMES.find((theme) => theme.id === preferredThemeId) : null;
     const themeChoices = THEMES.filter((theme) => theme.id !== this.previousTheme);
-    const theme = choose(themeChoices.length ? themeChoices : THEMES, this.random);
+    const theme = preferredTheme ?? choose(themeChoices.length ? themeChoices : THEMES, this.random) ?? THEMES[0];
     this.previousTheme = theme.id;
     return {
       theme,

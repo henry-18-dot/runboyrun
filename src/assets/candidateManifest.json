@@ -1,4 +1,418 @@
 {
   "version": 1,
-  "items": []
+  "items": [
+    {
+      "id": "grassland_v2_sky_open_plain_001",
+      "type": "visual",
+      "assetKind": "visual_layer",
+      "role": "sky_base",
+      "biome": "grassland",
+      "layer": "sky",
+      "subLayer": "L0",
+      "path": "/assets/candidates/visual/grassland_v2_sky_open_plain_001.png",
+      "width": 1024,
+      "height": 576,
+      "transparent": false,
+      "tileableX": true,
+      "tileableY": false,
+      "parallax": 0.03,
+      "groundLineY": 426,
+      "safeRiderZone": {
+        "xMin": 410,
+        "xMax": 640,
+        "yMin": 250,
+        "yMax": 486
+      },
+      "timeVariants": [
+        "dawn",
+        "noon",
+        "dusk",
+        "night"
+      ],
+      "weatherCompatible": [
+        "clear",
+        "cloudy",
+        "wind",
+        "rain"
+      ],
+      "status": "pending",
+      "review": {
+        "readability": null,
+        "seamlessX": null,
+        "styleMatch": null,
+        "lowFatigue": null,
+        "approved": false
+      },
+      "notes": "Grassland v2 engineered first-playable layer. Deterministic Pillow asset; pending manual review while used by runtime for playable validation.",
+      "tags": [
+        "engineered",
+        "pixel-art-inspired",
+        "parallax",
+        "grassland",
+        "v2",
+        "L0"
+      ]
+    },
+    {
+      "id": "grassland_v2_atmosphere_soft_haze_001",
+      "type": "visual",
+      "assetKind": "visual_layer",
+      "role": "celestial_atmosphere",
+      "biome": "grassland",
+      "layer": "atmosphere",
+      "subLayer": "L1",
+      "path": "/assets/candidates/visual/grassland_v2_atmosphere_soft_haze_001.png",
+      "width": 1024,
+      "height": 576,
+      "transparent": true,
+      "tileableX": true,
+      "tileableY": false,
+      "parallax": 0.06,
+      "groundLineY": 426,
+      "safeRiderZone": {
+        "xMin": 410,
+        "xMax": 640,
+        "yMin": 250,
+        "yMax": 486
+      },
+      "timeVariants": [
+        "dawn",
+        "noon",
+        "dusk"
+      ],
+      "weatherCompatible": [
+        "clear",
+        "cloudy",
+        "wind",
+        "rain"
+      ],
+      "status": "pending",
+      "review": {
+        "readability": null,
+        "seamlessX": null,
+        "styleMatch": null,
+        "lowFatigue": null,
+        "approved": false
+      },
+      "notes": "Grassland v2 engineered first-playable layer. Deterministic Pillow asset; pending manual review while used by runtime for playable validation.",
+      "tags": [
+        "engineered",
+        "pixel-art-inspired",
+        "parallax",
+        "grassland",
+        "v2",
+        "L1"
+      ]
+    },
+    {
+      "id": "grassland_v2_far_silhouette_pale_ridge_001",
+      "type": "visual",
+      "assetKind": "visual_layer",
+      "role": "far_silhouette",
+      "biome": "grassland",
+      "layer": "far",
+      "subLayer": "L2",
+      "path": "/assets/candidates/visual/grassland_v2_far_silhouette_pale_ridge_001.png",
+      "width": 1024,
+      "height": 576,
+      "transparent": true,
+      "tileableX": true,
+      "tileableY": false,
+      "parallax": 0.18,
+      "groundLineY": 426,
+      "safeRiderZone": {
+        "xMin": 410,
+        "xMax": 640,
+        "yMin": 250,
+        "yMax": 486
+      },
+      "timeVariants": [
+        "dawn",
+        "noon",
+        "dusk",
+        "night"
+      ],
+      "weatherCompatible": [
+        "clear",
+        "cloudy",
+        "wind",
+        "rain"
+      ],
+      "status": "pending",
+      "review": {
+        "readability": null,
+        "seamlessX": null,
+        "styleMatch": null,
+        "lowFatigue": null,
+        "approved": false
+      },
+      "notes": "Grassland v2 engineered first-playable layer. Deterministic Pillow asset; pending manual review while used by runtime for playable validation.",
+      "tags": [
+        "engineered",
+        "pixel-art-inspired",
+        "parallax",
+        "grassland",
+        "v2",
+        "L2"
+      ]
+    },
+    {
+      "id": "grassland_v2_far_detail_low_cloud_001",
+      "type": "visual",
+      "assetKind": "visual_layer",
+      "role": "far_detail",
+      "biome": "grassland",
+      "layer": "far_detail",
+      "subLayer": "L3",
+      "path": "/assets/candidates/visual/grassland_v2_far_detail_low_cloud_001.png",
+      "width": 1024,
+      "height": 576,
+      "transparent": true,
+      "tileableX": true,
+      "tileableY": false,
+      "parallax": 0.32,
+      "groundLineY": 426,
+      "safeRiderZone": {
+        "xMin": 410,
+        "xMax": 640,
+        "yMin": 250,
+        "yMax": 486
+      },
+      "timeVariants": [
+        "dawn",
+        "noon",
+        "dusk"
+      ],
+      "weatherCompatible": [
+        "clear",
+        "cloudy",
+        "wind"
+      ],
+      "status": "pending",
+      "review": {
+        "readability": null,
+        "seamlessX": null,
+        "styleMatch": null,
+        "lowFatigue": null,
+        "approved": false
+      },
+      "notes": "Grassland v2 engineered first-playable layer. Deterministic Pillow asset; pending manual review while used by runtime for playable validation.",
+      "tags": [
+        "engineered",
+        "pixel-art-inspired",
+        "parallax",
+        "grassland",
+        "v2",
+        "L3"
+      ]
+    },
+    {
+      "id": "grassland_v2_mid_scenery_meadow_rolls_001",
+      "type": "visual",
+      "assetKind": "visual_layer",
+      "role": "mid_scenery",
+      "biome": "grassland",
+      "layer": "mid",
+      "subLayer": "L4",
+      "path": "/assets/candidates/visual/grassland_v2_mid_scenery_meadow_rolls_001.png",
+      "width": 1024,
+      "height": 576,
+      "transparent": true,
+      "tileableX": true,
+      "tileableY": false,
+      "parallax": 0.56,
+      "groundLineY": 426,
+      "safeRiderZone": {
+        "xMin": 410,
+        "xMax": 640,
+        "yMin": 250,
+        "yMax": 486
+      },
+      "timeVariants": [
+        "dawn",
+        "noon",
+        "dusk",
+        "night"
+      ],
+      "weatherCompatible": [
+        "clear",
+        "cloudy",
+        "wind",
+        "rain"
+      ],
+      "status": "pending",
+      "review": {
+        "readability": null,
+        "seamlessX": null,
+        "styleMatch": null,
+        "lowFatigue": null,
+        "approved": false
+      },
+      "notes": "Grassland v2 engineered first-playable layer. Deterministic Pillow asset; pending manual review while used by runtime for playable validation.",
+      "tags": [
+        "engineered",
+        "pixel-art-inspired",
+        "parallax",
+        "grassland",
+        "v2",
+        "L4"
+      ]
+    },
+    {
+      "id": "grassland_v2_ground_back_meadow_base_001",
+      "type": "visual",
+      "assetKind": "visual_layer",
+      "role": "ground_back",
+      "biome": "grassland",
+      "layer": "ground_back",
+      "subLayer": "L5",
+      "path": "/assets/candidates/visual/grassland_v2_ground_back_meadow_base_001.png",
+      "width": 1024,
+      "height": 576,
+      "transparent": true,
+      "tileableX": true,
+      "tileableY": false,
+      "parallax": 0.82,
+      "groundLineY": 426,
+      "safeRiderZone": {
+        "xMin": 410,
+        "xMax": 640,
+        "yMin": 250,
+        "yMax": 486
+      },
+      "timeVariants": [
+        "dawn",
+        "noon",
+        "dusk",
+        "night"
+      ],
+      "weatherCompatible": [
+        "clear",
+        "cloudy",
+        "wind",
+        "rain"
+      ],
+      "status": "pending",
+      "review": {
+        "readability": null,
+        "seamlessX": null,
+        "styleMatch": null,
+        "lowFatigue": null,
+        "approved": false
+      },
+      "notes": "Grassland v2 engineered first-playable layer. Deterministic Pillow asset; pending manual review while used by runtime for playable validation.",
+      "tags": [
+        "engineered",
+        "pixel-art-inspired",
+        "parallax",
+        "grassland",
+        "v2",
+        "L5"
+      ]
+    },
+    {
+      "id": "grassland_v2_playable_ground_strip_001",
+      "type": "visual",
+      "assetKind": "visual_layer",
+      "role": "playable_ground_strip",
+      "biome": "grassland",
+      "layer": "ground",
+      "subLayer": "L6",
+      "path": "/assets/candidates/visual/grassland_v2_playable_ground_strip_001.png",
+      "width": 1024,
+      "height": 576,
+      "transparent": true,
+      "tileableX": true,
+      "tileableY": false,
+      "parallax": 1.0,
+      "groundLineY": 426,
+      "safeRiderZone": {
+        "xMin": 410,
+        "xMax": 640,
+        "yMin": 250,
+        "yMax": 486
+      },
+      "timeVariants": [
+        "dawn",
+        "noon",
+        "dusk",
+        "night"
+      ],
+      "weatherCompatible": [
+        "clear",
+        "cloudy",
+        "wind",
+        "rain"
+      ],
+      "status": "pending",
+      "review": {
+        "readability": null,
+        "seamlessX": null,
+        "styleMatch": null,
+        "lowFatigue": null,
+        "approved": false
+      },
+      "notes": "Grassland v2 engineered first-playable layer. Deterministic Pillow asset; pending manual review while used by runtime for playable validation.",
+      "tags": [
+        "engineered",
+        "pixel-art-inspired",
+        "parallax",
+        "grassland",
+        "v2",
+        "L6"
+      ]
+    },
+    {
+      "id": "grassland_v2_foreground_occluders_sparse_grass_001",
+      "type": "visual",
+      "assetKind": "visual_layer",
+      "role": "foreground_occluders",
+      "biome": "grassland",
+      "layer": "foreground",
+      "subLayer": "L8",
+      "path": "/assets/candidates/visual/grassland_v2_foreground_occluders_sparse_grass_001.png",
+      "width": 1024,
+      "height": 576,
+      "transparent": true,
+      "tileableX": true,
+      "tileableY": false,
+      "parallax": 1.22,
+      "groundLineY": 426,
+      "safeRiderZone": {
+        "xMin": 410,
+        "xMax": 640,
+        "yMin": 250,
+        "yMax": 486
+      },
+      "timeVariants": [
+        "dawn",
+        "noon",
+        "dusk",
+        "night"
+      ],
+      "weatherCompatible": [
+        "clear",
+        "cloudy",
+        "wind",
+        "rain"
+      ],
+      "status": "pending",
+      "review": {
+        "readability": null,
+        "seamlessX": null,
+        "styleMatch": null,
+        "lowFatigue": null,
+        "approved": false
+      },
+      "notes": "Grassland v2 engineered first-playable layer. Deterministic Pillow asset; pending manual review while used by runtime for playable validation.",
+      "tags": [
+        "engineered",
+        "pixel-art-inspired",
+        "parallax",
+        "grassland",
+        "v2",
+        "L8"
+      ]
+    }
+  ]
 }

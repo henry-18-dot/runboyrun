@@ -1,0 +1,127 @@
+export const RUNTIME_VISUAL_LAYERS = [
+  {
+    id: "grassland_v2_sky_open_plain_001",
+    biome: "grassland",
+    layer: "sky",
+    subLayer: "L0",
+    role: "sky_base",
+    src: "/assets/candidates/visual/grassland_v2_sky_open_plain_001.png",
+    width: 1024,
+    height: 576,
+    transparent: false,
+    tileableX: true,
+    parallax: 0.03,
+    groundLineY: 426,
+    safeRiderZone: { xMin: 410, xMax: 640, yMin: 250, yMax: 486 }
+  },
+  {
+    id: "grassland_v2_atmosphere_soft_haze_001",
+    biome: "grassland",
+    layer: "atmosphere",
+    subLayer: "L1",
+    role: "celestial_atmosphere",
+    src: "/assets/candidates/visual/grassland_v2_atmosphere_soft_haze_001.png",
+    width: 1024,
+    height: 576,
+    transparent: true,
+    tileableX: true,
+    parallax: 0.06,
+    groundLineY: 426,
+    safeRiderZone: { xMin: 410, xMax: 640, yMin: 250, yMax: 486 }
+  },
+  {
+    id: "grassland_v2_far_silhouette_pale_ridge_001",
+    biome: "grassland",
+    layer: "far",
+    subLayer: "L2",
+    role: "far_silhouette",
+    src: "/assets/candidates/visual/grassland_v2_far_silhouette_pale_ridge_001.png",
+    width: 1024,
+    height: 576,
+    transparent: true,
+    tileableX: true,
+    parallax: 0.18,
+    groundLineY: 426,
+    safeRiderZone: { xMin: 410, xMax: 640, yMin: 250, yMax: 486 }
+  },
+  {
+    id: "grassland_v2_far_detail_low_cloud_001",
+    biome: "grassland",
+    layer: "far_detail",
+    subLayer: "L3",
+    role: "far_detail",
+    src: "/assets/candidates/visual/grassland_v2_far_detail_low_cloud_001.png",
+    width: 1024,
+    height: 576,
+    transparent: true,
+    tileableX: true,
+    parallax: 0.32,
+    groundLineY: 426,
+    safeRiderZone: { xMin: 410, xMax: 640, yMin: 250, yMax: 486 }
+  },
+  {
+    id: "grassland_v2_mid_scenery_meadow_rolls_001",
+    biome: "grassland",
+    layer: "mid",
+    subLayer: "L4",
+    role: "mid_scenery",
+    src: "/assets/candidates/visual/grassland_v2_mid_scenery_meadow_rolls_001.png",
+    width: 1024,
+    height: 576,
+    transparent: true,
+    tileableX: true,
+    parallax: 0.56,
+    groundLineY: 426,
+    safeRiderZone: { xMin: 410, xMax: 640, yMin: 250, yMax: 486 }
+  },
+  {
+    id: "grassland_v2_ground_back_meadow_base_001",
+    biome: "grassland",
+    layer: "ground_back",
+    subLayer: "L5",
+    role: "ground_back",
+    src: "/assets/candidates/visual/grassland_v2_ground_back_meadow_base_001.png",
+    width: 1024,
+    height: 576,
+    transparent: true,
+    tileableX: true,
+    parallax: 0.82,
+    groundLineY: 426,
+    safeRiderZone: { xMin: 410, xMax: 640, yMin: 250, yMax: 486 }
+  },
+  {
+    id: "grassland_v2_playable_ground_strip_001",
+    biome: "grassland",
+    layer: "ground",
+    subLayer: "L6",
+    role: "playable_ground_strip",
+    src: "/assets/candidates/visual/grassland_v2_playable_ground_strip_001.png",
+    width: 1024,
+    height: 576,
+    transparent: true,
+    tileableX: true,
+    parallax: 1,
+    groundLineY: 426,
+    safeRiderZone: { xMin: 410, xMax: 640, yMin: 250, yMax: 486 }
+  },
+  {
+    id: "grassland_v2_foreground_occluders_sparse_grass_001",
+    biome: "grassland",
+    layer: "foreground",
+    subLayer: "L8",
+    role: "foreground_occluders",
+    src: "/assets/candidates/visual/grassland_v2_foreground_occluders_sparse_grass_001.png",
+    width: 1024,
+    height: 576,
+    transparent: true,
+    tileableX: true,
+    parallax: 1.22,
+    groundLineY: 426,
+    safeRiderZone: { xMin: 410, xMax: 640, yMin: 250, yMax: 486 }
+  }
+];
+
+export function visualLayersFor(biomeId, layerNames) {
+  const names = new Set(Array.isArray(layerNames) ? layerNames : [layerNames]);
+  return RUNTIME_VISUAL_LAYERS.filter((item) => item.biome === biomeId && names.has(item.layer));
+}

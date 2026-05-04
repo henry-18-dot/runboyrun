@@ -1,0 +1,17 @@
+{
+  "rider_horse": {
+    "type": "placeholder",
+    "states": [
+      "normal_run",
+      "slow_walk",
+      "stop_idle",
+      "fast_run",
+      "fast_start_excited",
+      "fast_tired",
+      "long_stop_bored",
+      "left_resist",
+      "salute",
+      "cloak_movement"
+    ]
+  }
+}
